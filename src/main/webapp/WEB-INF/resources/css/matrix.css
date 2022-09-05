@@ -1,0 +1,23 @@
+.center, .footer {
+    display: block;
+    text-align: center;
+}
+form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.matrixRow {
+    text-align: center;
+    display:block;
+}
+.matrixRow * {
+    display: table-cell;
+    vertical-align: middle;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+a:link, i {
+    color: black;
+}

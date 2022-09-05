@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MatriX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}">
+    <link rel="stylesheet" href="../resources/css/matrix.css" th:href="@{/resources/css/matrix.css}">
+</head>
+<body>
+<div class="center">
+    <form action="#" th:action="@{/}" th:object="${matrixInfo}" th:method="POST">
+        <p><label for="matrix1">Matrix A:</label></p>
+        <div class="matrixRow">
+            <textarea id="matrix1" name="matrix1" rows="5" cols="10" placeholder="1,2,8&#10;5,2,6&#10;2,0,3"
+                  th:name="matrix1" th:field="*{matrixA}" th:text="${matrixInfo.matrixA}"></textarea>
+            <br />
+            <input type="submit" value="Inverse A" th:value="'Inverse A'" th:name="operation" style="height:40px;">
+            <input type="submit" value="Determinant A" th:value="'Determinant A'" th:name="operation" style="height:40px;">
+            <input type="submit" value="Transpose A" th:value="'Transpose A'" th:name="operation" style="height:40px;">
+            <br />
+            <input type="submit" value="Lower Triangular A" th:value="'Lower Triangular A'" th:name="operation" style="height:40px;">
+            <input type="submit" value="Diagonal Form A" th:value="'Diagonal Form A'" th:name="operation" style="height:40px;">
+            <input type="submit" value="Upper Triangular A" th:value="'Upper Triangular A'" th:name="operation" style="height:40px;">
+        </div>
+
+        <br />
+        <hr />
+        <br />
+
+        <input type="submit" value="+" th:value="'+'" th:name="operation" style="height:40px; width:40px">
+        <input type="submit" value="-" th:value="'-'" th:name="operation" style="height:40px; width:40px">
+        <input type="submit" value="x" th:value="'x'" th:name="operation" style="height:40px; width:40px">
+        <br />
+        <br />
+        <input type="text" placeholder="stridingSizeX"
+               th:field="*{settings.convStridingSizeX}" th:value="${matrixInfo.settings.convStridingSizeX}"
+               style="height:15px; width:90px;">
+        <input type="text" placeholder="paddingSizeX"
+               th:field="*{settings.convPaddingSizeX}" th:value="${matrixInfo.settings.convPaddingSizeX}"
+               style="height:15px; width:90px;">
+        <input type="submit" value="Convolution" th:value="Convolution" th:name="operation" style="height:40px;">
+
+        <input type="text" placeholder="stridingSizeY"
+               th:field="*{settings.convStridingSizeY}" th:value="${matrixInfo.settings.convStridingSizeY}"
+               style="height:15px; width:90px;">
+        <input type="text" placeholder="paddingSizeY"
+               th:field="*{settings.convPaddingSizeY}" th:value="${matrixInfo.settings.convPaddingSizeY}"
+               style="height:15px; width:90px;">
+
+        <br />
+        <br />
+        <hr />
+
+        <p><label for="matrix2">Matrix B:</label></p>
+        <div class="matrixRow">
+            <textarea id="matrix2" name="matrix2" rows="5" cols="10" placeholder="1,2,8&#10;5,2,6&#10;2,0,3"
+                      th:name="matrix2" th:field="*{matrixB}" th:text="${matrixInfo.matrixB}"></textarea>
+            <br />
+            <input type="submit" value="Inverse B" th:value="'Inverse B'" th:name="operation" style="height:40px;">
+            <input type="submit" value="Determinant B" th:value="'Determinant B'" th:name="operation" style="height:40px;">
+            <input type="submit" value="Transpose B" th:value="'Transpose B'" th:name="operation" style="height:40px;">
+            <br />
+            <input type="submit" value="Lower Triangular B" th:value="'Lower Triangular B'" th:name="operation" style="height:40px;">
+            <input type="submit" value="Diagonal Form B" th:value="'Diagonal Form B'" th:name="operation" style="height:40px;">
+            <input type="submit" value="Upper Triangular B" th:value="'Upper Triangular B'" th:name="operation" style="height:40px;">
+        </div>
+
+        <p><label for="result">Result:</label></p>
+        <textarea readonly id="result" name="result" rows="5" cols="20"
+                    th:name="result" th:field="*{matrixResult}" th:text="${matrixInfo.matrixResult}"></textarea>
+        <br>
+    </form>
+</div>
+
+<hr/>
+<div class="footer">
+    <a href="https://github.com/MrAlexeiMK/MatriX" target="_blank"><i style="font-size: 30px" class="fa">&#xf09b;</i></a>
+    <p>© MatriX created by MrAlexeiMK (2022)</p>
+</div>
+
+</body>
+</html>
